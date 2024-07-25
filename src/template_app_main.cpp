@@ -6,7 +6,6 @@ int main(int, char**)
 {
     boost::asio::io_context io;
     auto conn = std::make_shared<sdbusplus::asio::connection>(io);
-    conn->request_name("xyz.openbmc_project.TemplateApp");
 
     auto server = sdbusplus::asio::object_server(conn);
 
@@ -17,4 +16,7 @@ int main(int, char**)
     iface->register_property("IntegerValue", 23, changeIntegerValue);
 
     iface->register_method("UnlockDoor", unlockDoor);
+    conn->request_name("xyz.openbmc_project.TemplateApp");
+
+    io.run();
 }

@@ -22,7 +22,7 @@ endif
 
 boost = dependency(
     'boost',
-    version: '>=1.84.0',
+    version: '>=1.87.0',
     required: false,
     include_type: 'system',
 )
